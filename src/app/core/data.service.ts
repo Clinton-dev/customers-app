@@ -17,16 +17,16 @@ export class DataService {
     return this.http.get<ICustomer[]>(this.baseUrl + 'customers.json')
   }
 
-  // getCustomer(id: number) : Observable<ICustomer> {
-  //   return this.http.get<ICustomer[]>(this.baseUrl + 'customers.json')
-  //     .pipe(
-  //       map(customers => {
-  //         let customer = customers.filter((cust: ICustomer) => cust.id === id);
-  //         return (customer && customer.length) ? customer[0] : null;
-  //       }),
-  //       // catchError(this.handleError)
-  //     )
-  // }
+  getCustomer(id: number) : Observable<ICustomer> {
+    return this.http.get<ICustomer[]>(this.baseUrl + 'customers.json')
+      .pipe(
+        map(customers => {
+          let customer = customers.filter((cust: ICustomer) => cust.id === id);
+          return (customer && customer.length) ? customer[0] : null;
+        }),
+        // catchError(this.handleError)
+      )
+  }
 
   getOrders(id: number) : Observable<IOrder[]> {
     return this.http.get<IOrder[]>(this.baseUrl + 'orders.json')
